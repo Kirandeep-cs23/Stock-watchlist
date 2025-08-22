@@ -33,8 +33,19 @@ button {
 }
 
 .stock-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #444;
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
+}
+
+.stock-ticker {
+  font-weight: bold;
+}
+
+.stock-price {
+  font-family: monospace;
 }

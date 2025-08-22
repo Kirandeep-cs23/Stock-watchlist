@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; // We will use this for styling
+import './App.css';
 
 function App() {
   const [stocks, setStocks] = useState([]);
   const [ticker, setTicker] = useState('');
 
-  // This function runs once when the component loads
   useEffect(() => {
     fetchWatchlist();
   }, []);
 
-  // Fetches all stocks from our backend API
   const fetchWatchlist = async () => {
     try {
       const res = await axios.get('http://localhost:5000/api/stocks');
@@ -21,14 +19,13 @@ function App() {
     }
   };
 
-  // Handles adding a new stock
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!ticker) return; // Prevent adding empty tickers
+    if (!ticker) return;
     try {
       await axios.post('http://localhost:5000/api/stocks', { ticker });
-      setTicker(''); // Clear the input box
-      fetchWatchlist(); // Refresh the list
+      setTicker('');
+      fetchWatchlist();
     } catch (err) {
       console.error('Error adding stock:', err);
     }
@@ -50,7 +47,10 @@ function App() {
         <div className="watchlist">
           {stocks.map((stock) => (
             <div key={stock._id} className="stock-item">
-              {stock.ticker}
+              <span className="stock-ticker">{stock.ticker}</span>
+              <span className="stock-price">
+  {stock.price ? `$${stock.price.toFixed(2)}` : 'Loading...'}
+</span>
             </div>
           ))}
         </div>
