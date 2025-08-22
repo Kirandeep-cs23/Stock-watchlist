@@ -6,6 +6,10 @@ const StockSchema = new mongoose.Schema({
     required: true,
     trim: true,
     uppercase: true
+  },
+  price: {
+    type: Number,
+    required: true
   }
 });
 
