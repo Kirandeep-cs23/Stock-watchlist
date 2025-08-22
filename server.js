@@ -14,4 +14,6 @@ mongoose.connect(MONGO_URI)
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
+// Define Routes
+app.use('/api/stocks', require('./routes/stock'));    
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
