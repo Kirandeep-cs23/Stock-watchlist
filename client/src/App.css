@@ -37,9 +37,10 @@ button {
   justify-content: space-between;
   align-items: center;
   background-color: #444;
-  margin: 5px 0;
-  padding: 10px;
+  margin: 8px 0;
+  padding: 12px;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .stock-ticker {
@@ -48,4 +49,42 @@ button {
 
 .stock-price {
   font-family: monospace;
+  color: white; /* Start as white */
+  transition: color 0.5s ease-in-out; /* Smoothly transition color over half a second */
+}
+
+.price-up {
+  color: #4caf50; /* Flash Green */
+}
+
+.price-down {
+  color: #f44336; /* Flash Red */
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: #aaa;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0;
+  line-height: 30px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+.delete-btn:hover {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+.error-message {
+  color: #f44336; /* Red */
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
 }
